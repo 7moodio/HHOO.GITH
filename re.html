@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IP Info</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHBveWN2ZTNtaTRuNmkxODJnMDJweGducG41aG5scm1xZG9pZjM3ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YQitE4YNQNahy/giphy.gif') no-repeat center center fixed;
+      background-size: cover;
+      font-family: "Courier New", Courier, monospace;
+      color: #ff0000;
+      display: flex;
+      justify-content: center;  
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+    .image-container img {
+      width: 750px;
+      border: 2px solid #ff0000;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+    }
+    .info {
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #afafaf;
+    }
+    .text {
+      margin-top: 20px;
+      font-size: 3em;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <img src="https://media.discordapp.net/attachments/1243605011041222728/1416353442363998308/AL_KINDI.png?ex=68c6896f&is=68c537ef&hm=03bfebad80e42908e58ba7a79b8b5ea566bcb0c49e067464a35175e85a23fe21&=&format=webp&quality=lossless&width=600&height=100" alt="Discord Image">
+  </div>
+
+  <audio autoplay loop>
+    <source src="aa.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="text">تم المعلوماتت </div>
+
+  <div class="info">
+    <strong>IP:</strong> <span id="ip"></span><br>
+    <strong>City:</strong> <span id="city"></span><br>
+    <strong>Region:</strong> <span id="region"></span><br>
+    <strong>Country:</strong> <span id="country"></span><br>
+    <strong>Location:</strong> <span id="loc"></span><br>
+    <strong>Organization:</strong> <span id="org"></span><br>
+    <strong>Timezone:</strong> <span id="timezone"></span><br>
+  </div>
+
+  <div class="text"> Al kindi is here : <a href="https://discord.gg/00000" style="color:red;">discord.gg/0000000</a></div>
+
+  <script>
+    fetch('https://ipinfo.io/json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('ip').textContent = data.ip;
+        document.getElementById('city').textContent = data.city;
+        document.getElementById('region').textContent = data.region;
+        document.getElementById('country').textContent = data.country;
+        document.getElementById('loc').textContent = data.loc;
+        document.getElementById('org').textContent = data.org;
+        document.getElementById('timezone').textContent = data.timezone;
+      });
+  </script>
+</body>
+</html>
